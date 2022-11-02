@@ -2,6 +2,7 @@ package com.example.lab1.controller;
 
 
 import com.example.lab1.entity.Post;
+import com.example.lab1.entity.dto.PostDto;
 import com.example.lab1.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,13 @@ public class PostController {
     public PostController(PostService postService) {
         this.postService = postService;
     }
+
+
+    @GetMapping("/post-authors")
+    public List<PostDto> getAllAuthor(){
+        return postService.getAllPostAuthor();
+    }
+
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
